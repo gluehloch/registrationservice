@@ -1,6 +1,5 @@
 package de.awtools.registration.register;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
