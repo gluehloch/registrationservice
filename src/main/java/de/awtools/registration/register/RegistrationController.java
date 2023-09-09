@@ -1,6 +1,5 @@
 package de.awtools.registration.register;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -95,7 +94,7 @@ public class RegistrationController {
     @CrossOrigin
     @PostMapping(value = "/confirm/{token}")
     public ResponseEntity<RegistrationValidationJson> confirm(@PathVariable String token) {
-        DefaultRegistrationValidation validation = registrationService.confirmAccount(new Token(token))d;
+        DefaultRegistrationValidation validation = registrationService.confirmAccount(new Token(token));
 
         return toResponse(validation);
     }
