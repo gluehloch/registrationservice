@@ -58,6 +58,8 @@ public class RegistrationController {
     }
 
     private boolean validateApiKey(String apiKey) {
+        // BO versendet seinen API Key verschlüsselt als Header Parameter 'api-key'
+        
     	// jwt token / validierung gegen den KeyStore
         // api-key in der Liste der aktzeptierten Keys?
         // Falls ja return true, falls nein return false!
