@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>registrationservice-parent</artifactId>
-    <version>0.4.0</version>
+    <version>0.5.0-SNAPSHOT</version>
     <name>Registration REST API project</name>
     <packaging>pom</packaging>
 
@@ -25,6 +25,8 @@
         <springfox.version>3.0.0</springfox.version>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
+        
+        <register.version>0.5.0-SNAPSHOT</register.version>
     </properties>
 
     <scm>
