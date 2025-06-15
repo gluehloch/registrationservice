@@ -3,7 +3,9 @@ package de.awtools.registration.user;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import jakarta.transaction.Transactional;
 
@@ -13,7 +15,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.core.env.Environment;
 import org.springframework.test.annotation.Rollback;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -21,6 +25,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import de.awtools.registration.Tags;
 import de.awtools.registration.config.PersistenceJPAConfig;
 
+@ActiveProfiles("test")
 @WebAppConfiguration
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = { PersistenceJPAConfig.class })
@@ -38,10 +43,15 @@ class UserRepositoryTest {
     @Autowired
     PrivilegeRepository privilegeRepository;
 
+    @Autowired
+    Environment environment;
+
     @DisplayName("Repository test: Find all users")
     @Test
     @Tag(Tags.REPOSITORY)
     void findUser() {
+        System.out.println("Environment: " + String.join(" ", environment.getActiveProfiles()));
+
         UserAccountEntity user = new UserAccountEntity();
         user.setNickname("Frosch");
         user.setFirstname("Andre");
