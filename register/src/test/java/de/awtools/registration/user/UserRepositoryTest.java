@@ -13,9 +13,12 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.env.Environment;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
@@ -43,15 +46,10 @@ class UserRepositoryTest {
     @Autowired
     PrivilegeRepository privilegeRepository;
 
-    @Autowired
-    Environment environment;
-
     @DisplayName("Repository test: Find all users")
     @Test
     @Tag(Tags.REPOSITORY)
     void findUser() {
-        System.out.println("Environment: " + String.join(" ", environment.getActiveProfiles()));
-
         UserAccountEntity user = new UserAccountEntity();
         user.setNickname("Frosch");
         user.setFirstname("Andre");
