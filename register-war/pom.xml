@@ -6,7 +6,7 @@
     <parent>
         <groupId>de.awtools</groupId>
         <artifactId>master-pom</artifactId>
-        <version>14-java21</version>
+        <version>15-java21</version>
     </parent>
 
     <artifactId>registrationservice-war</artifactId>

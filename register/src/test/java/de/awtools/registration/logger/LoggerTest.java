@@ -1,10 +1,7 @@
 package de.awtools.registration.logger;
 
-import java.util.Arrays;
-
-import ch.qos.logback.classic.LoggerContext;
-import ch.qos.logback.core.util.StatusPrinter;
 import jakarta.transaction.Transactional;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.slf4j.Logger;
@@ -36,8 +33,9 @@ class LoggerTest {
 
     @Test
     void printLoggerStatus() {
-        LOG.error("Environment: {}", Arrays.stream(environment.getActiveProfiles()));
-        LoggerContext lc = (LoggerContext) LoggerFactory.getILoggerFactory();
-        StatusPrinter.print(lc);
+        String join = String.join(",", environment.getActiveProfiles());
+        LOG.info("Environment: {}", join);
+        // LoggerContext lc = (LoggerContext) LoggerFactory.getILoggerFactory();
+        // StatusPrinter.print(lc);
     }
 }
