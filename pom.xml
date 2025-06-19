@@ -6,11 +6,11 @@
     <parent>
         <groupId>de.awtools</groupId>
         <artifactId>master-pom</artifactId>
-        <version>14-java21</version>
+        <version>15-java21</version>
     </parent>
 
     <artifactId>registrationservice-parent</artifactId>
-    <version>0.4.0</version>
+    <version>0.5.0-SNAPSHOT</version>
     <name>Registration REST API project</name>
     <packaging>pom</packaging>
 
@@ -25,6 +25,8 @@
         <springfox.version>3.0.0</springfox.version>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
+        
+        <register.version>0.5.0-SNAPSHOT</register.version>
     </properties>
 
     <scm>
@@ -113,7 +115,7 @@
             <dependency>
                 <groupId>org.junit</groupId>
                 <artifactId>junit-bom</artifactId>
-                <version>5.5.2</version>
+                <version>5.13.1</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -253,7 +255,7 @@
         </dependency>
 
         <dependency>
-            <groupId>org.hibernate</groupId>
+            <groupId>org.hibernate.orm</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>${org.hibernate.version}</version>
             <scope>compile</scope>
@@ -386,12 +388,28 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Logging -->
+        <!-- Logging
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>2.0.17</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>1.5.18</version>
+        </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>1.2.13</version>
+            <version>1.5.6</version>
         </dependency>
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.3.3</version>
+        </dependency>
+        -->
     </dependencies>
 
 </project>

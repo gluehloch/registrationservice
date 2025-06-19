@@ -36,7 +36,7 @@ import jakarta.persistence.EntityManagerFactory;
 @PropertySource(ignoreResourceNotFound = true, value = {
 		"file:${AWTOOLS_CONFDIR}/register/register.properties",
         "file:${user.home}/.register.properties",
-        "classpath:/register.properties"
+        "classpath:/register.properties" // classppath:/register.properties wins every time!
 })
 @EnableTransactionManagement
 @ComponentScan("de.awtools.registration")
